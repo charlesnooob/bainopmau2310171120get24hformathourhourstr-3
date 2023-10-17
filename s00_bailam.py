@@ -41,6 +41,40 @@ get_24hformat_hour('11 PM')            | 23                     | 12
 #endregion debai
 
 #region bailam
+import re
 def get_24hformat_hour(hour_str):
-  return 'todo'
+  if len(hour_str)<5:
+    a = re.search('am',hour_str)
+    if a:
+      return hour_str[0:1]
+    else: pass
+    A = re.search('AM',hour_str)
+    if A:
+      return hour_str[0:1]
+    else: pass
+    p = re.search('pm',hour_str)
+    if p:
+      s=int(hour_str[0:1])+12
+      return str(s)
+    P = re.search('PM',hour_str)
+    if P:
+      s=int(hour_str[0:1])+12
+      return str(s)
+  if len(hour_str)>4:
+    a = re.search('am',hour_str)
+    if a:
+      return hour_str[0:2]
+    else: pass
+    A = re.search('AM',hour_str)
+    if A:
+      return hour_str[0:2]
+    else: pass
+    p = re.search('pm',hour_str)
+    if p:
+      s=int(hour_str[0:2])+12
+      return str(s)
+    P = re.search('PM',hour_str)
+    if P:
+      s=int(hour_str[0:2])+12
+      return str(s)
 #endregion bailam
